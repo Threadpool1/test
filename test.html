@@ -2,97 +2,76 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>jquery选择器</title>
-		<script src="js/jquery-3.4.1.min.js"></script>
+		<title>鼠标滑过显示</title>
 		<style type="text/css">
-			.red{
-				color: red;
+			*{
+				margin: 0;
+				padding: 0;
 			}
-			.black{
-				color: black;
-				font-size: 30px;
+			.box{
+				/*css3新盒子模型属性：控制width/height是盒子最终的宽高*/
+				box-sizing: border-box;
+				/* margin: 20px auto; */
+				width: 20%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border: 1px solid red;
+				position: relative;
+				display: inline-block;
+				
 			}
-			.add{
-				height: 20px;
-				width: 20px;
-				background: red;
+			.box .detailleft{
+				display: none;
+				position: absolute;
+				right: -1px;
+				top: 100%;
+				box-sizing: border-box;
+				width: 200%;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid red;
+				
+			}
+			.box .detailright{
+				display: none;
+				position: absolute;
+				left: -1px;
+				top: 38px;
+				box-sizing: border-box;
+				width: 200%;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid red;
+				
 			}
 			
+			.box:hover{
+				background: #FF0000;
+			}
+			.box:hover .detailleft{
+				display: block;
+				transform: rotate(-100deg);
+			}
+			.box:hover .detailright{
+				display: block;
+			}
 		</style>
 	</head>
 	<body>
-		<p class="red">你好</p>
-		<p class="black">注册成功</p>
-		<p><i>你好</i></p>
-		<p></p>
-		<ul>
-			<li id="1">梅西四夺金球，成为史上第一人</li>
-			<li name="one_two">C罗梅西短经传情</li>
-			<li name="three">林书豪表现失常火遭遇四连败</li>
-			<li>中国男足表现神勇，1比1逼平西班牙老年秧歌队</li>
-			<li>市场疲困，苹果削减LCD订单</li>
-			<li>诺基亚销量增长明显，塞班正式退出历史舞台</li>
-			<li>PHP5.5.0alpha3发布</li>
-			<li>jquery2将不再支持IE6/7/8</li>	
-		</ul>
-		
-		<ul>
-			<li>你好</li>
-			<li>你们好</li>
-		</ul>
-		<script>
-			//类选择器
-			$(".red").css("color","blue");
-			//匹配所有元素
-			$("*").css("font-family","宋体");
-			//并集选择器
-			$(".red,.black").css("color","pink");
-			
-			//选择第一个li
-			$("li:first").css("color","red");
-			//选择最后一个li
-			$("li:last").css("color","red");
-			//选择li除了第一个和最后一个的元素
-			$("li:not(:last,:first)").css("color","blue");
-			//选择偶数下标元素
-			$("li:even").css("color","green");
-			//选择奇数下标元素
-			$("li:odd").css("color","pink");
-			//选择下标为1的元素
-			$("li:eq(1)").css("color","green");
-			//选择下标大于3的所有元素
-			$("li:gt(3)").css("color","yellow");
-			//选择下标小于3下标的所有元素
-			$("li:lt(3)").css("color","white");
-			
-			
-			//选取含有文本内容为“再”的元素，返回元素集合
-			$("li:contains('再')").css("color","black");
-			//选取不包含子元素或者文本元素的空元素，返回元素集合
-			$("*:empty").addClass("add");
-			//选取含有选择器所匹配的元素的元素，返回元素集合
-			$("p:has(i)").css("background","yellow");
-			//选取含有子元素或者文本的元素，返回元素集合
-			$("ul:parent").css("background","pink");
-			
-			//选取拥有id属性的li元素
-			$("li[id]").css("background","green");
-			//选取name属性为three的li元素
-			$("li[name=three]").css("background","green");
-			//选取name属性开头为one的li元素
-			$("li[name^=one]").css("background","black");
-			//选取name属性结尾为two的li元素
-			$("li[name$=two]").css("background","red");
-			//选取name属性里面有_的li元素
-			$("li[name*=_]").css("background","pink");
-			
-			//
-			$("li:first-child").css("color","red");
-			
-			//选择在父元素中的li元素的第一个li元素
-			$("li:first-of-type").css("background","black");
-			
-			$("ul li:nth-child(1)").css("background","blue");
-		</script>
+		<div class="box">
+			<span>购物车</span>
+			<div class="detailright">
+				购物车的相关信息
+			</div>
+		</div>
+		<div class="box">
+			<span>购物车</span>
+			<div class="detailleft">
+				购物车的相关信息
+			</div>
+		</div>
 	</body>
 </html>
