@@ -1,3 +1,79 @@
-hllow world
-wqqqqzzz
-:W
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标滑过显示</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				/*css3新盒子模型属性：控制width/height是盒子最终的宽高*/
+				box-sizing: border-box;
+				/* margin: 20px auto; */
+				width: 20%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border: 1px solid red;
+				position: relative;
+				display: inline-block;
+				
+			}
+			.box .detailleft{
+				display: none;
+				position: absolute;
+				right: -1px;
+				top: 100%;
+				box-sizing: border-box;
+				width: 200%;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid red;
+				
+			}
+			.box .detailright{
+				display: none;
+				position: absolute;
+				left: -1px;
+				top: 38px;
+				box-sizing: border-box;
+				width: 200%;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid red;
+				
+			}
+			
+			.box:hover{
+				background: #FF0000;
+			}
+			.box:hover .detailleft{
+				display: block;
+				transform: rotate(-100deg);
+			}
+			.box:hover .detailright{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span>购物车</span>
+			<div class="detailright">
+				购物车的相关信息
+			</div>
+		</div>
+		<div class="box">
+			<span>购物车</span>
+			<div class="detailleft">
+				购物车的相关信息
+			</div>
+		</div>
+	</body>
+</html>
+
