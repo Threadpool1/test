@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM文档操作</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				height:100%;
+				width: 100%;
+			}
+			.li{
+				background-color: brown;
+				width: 80px;
+				height: 80px;
+				display: block;
+				list-style: none;
+				/* display: none; */
+				float: left;
+				margin-right: 10px;
+			}
+			
+		</style>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	
+	<body>
+		<button id="but">显示元素</button>
+		<br />
+		<ul class="ul"></ul>
+		<script>
+			for(let i=0;i<7;i++){
+				$("<li class='li'></li>").appendTo(".ul").show(2000);
+			}
+			$("#but").click(function(){
+				// 元素遍历
+				let index=0;
+				let time=setInterval(()=>{
+					$('li').eq(index).show(1000);
+					index++;
+				},1000);
+				});
+				// $("ul>li").each((index,element)=>{
+				// 		$(element).show(2000,function(){
+				// 			$(this).next().show(2000);
+				// 		});
+				// 	// $(element).stop().show(2000+index*1000);
+				// });
+		
+			$(".li").click(function(){
+				$(this).hide(2000);
+			});
+			
+			
+		</script>
+	</body>
+</html>

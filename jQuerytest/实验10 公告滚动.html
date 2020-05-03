@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公告滚动</title>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li>公告1</li>
+			<li>公告2</li>
+			<li>公告3</li>
+			<li>公告4</li>
+			<li>公告5</li>
+			<li>公告6</li>
+		</ul>
+		<script>
+			setInterval(()=>{
+				let clone=$("ul>li").first().clone();
+				$(clone).appendTo("ul");
+				$("ul>li").first().remove();
+			},2000);
+		</script>
+	</body>
+</html>

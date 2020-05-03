@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉效果</title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<style type="text/css">
+			li{
+				list-style:none;
+				display:inline;
+                margin-left:20%;
+                font-family: "微软雅黑";
+                
+			}
+			p{
+				color: blue;
+				display: inline;
+			}
+			a{ 
+				text-decoration:none;
+				color:blue; 
+				}
+            a:hover{ 
+            	text-decoration:underline;
+            	color: lawngreen;
+            	/*当鼠标经过时显示下划线，并且改变颜色*/
+            	 }
+            button{
+            	height: 35px;
+            	background: white;
+            	margin-left: 50%;
+            }
+		</style>
+	</head>
+	<body>
+		<div>
+		<ul>
+		<li><a href="#">佳能</a><i>(30440)</i></li>
+		<li><a href="#">索尼</a><i>(27220)</i></li>
+		<li><a href="#">三星</a><i>(20808)</i></li>
+		<li><a href="#">尼康</a><i>(17821)</i></li>
+		<li><a href="#">松下</a><i>(12289)</i></li>
+		<li><a href="#">卡西欧</a><i>(8242)</i></li>
+		<li><a href="#">富士</a><i>(14894)</i></li>
+		<li><a href="#">柯达</a><i>(9520)</i></li>
+		<li><a href="#">宾得</a><i>(2195)</i></li>
+		<li><a href="#">理光</a><i>(4114)</i></li>
+		<li><a href="#">奥林巴斯</a><i>(12205)</i></li>
+		<li><a href="#">明基</a><i>(1466)</i></li>
+		<li><a href="#">爱国者</a><i>(3091)</i></li>
+		<li><a href="#">其他品牌相机</a><i>(7275)</i></li>
+		</ul>
+		</div>
+		<button id="button_down"><img src="img/down.gif" /><p>显示全部品牌</p></button>
+		<button id="button_up"><img src="img/up.gif" /><p>精简显示品牌</p></button>
+		
+		<script>
+			
+			var up=$("#button_up").hide();//精简显示
+			var down=$("#button_down");//显示全部
+			var obj=$("li:gt(5):not(:last)").hide();//隐藏下标大于5且不包含最后一个的li
+			
+			up.click(function(){
+				//收起
+				$(this).hide();
+				down.show();
+				obj.hide();
+				
+				
+			});
+			down.click(function(){
+				//打开
+				$(this).hide()
+				up.show();
+				obj.show();
+				
+			})
+			
+		</script>
+	</body>
+</html>

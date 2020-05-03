@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实验9 pageX</title>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<img src="JavaIO.jpg" style="width: 100px; height: 100px; position: absolute;" />
+		<script>
+			$(function(){
+				$(document).mousemove(function(e){
+					$("img").css("top",e.pageY);
+					$("img").css("left",e.pageX);
+				});
+			});
+		</script>
+	</body>
+</html>

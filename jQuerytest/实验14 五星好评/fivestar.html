@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>五星好评</title>
+		<style type="text/css">
+			li{
+			    float: left;
+				list-style: none;
+				display: block;
+				background-image: url(star.gif);
+				height: 28px;
+				width: 28px;
+				cursor: pointer;
+			}
+		
+		</style>
+	</head>
+	<body>
+		
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		<br/>
+		<br/>
+		<button>重新评价</button>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<script>	
+			let b=true;
+			$("li").on({
+			mouseover:function(){
+				
+			    $(this).prevAll().addBack().css("background-position-y","-28px");
+			},mouseout:function(){
+				if(b){
+					$(this).siblings().addBack().css("background-position-y","0px");
+				}else{
+					b=true;
+				}	
+			},click:function(){
+				b=false;
+			}
+			});
+			$("button").click(function(){
+				$("li").siblings().addBack().css("background-position-y","0px");
+			})
+		</script>
+	</body>
+</html>

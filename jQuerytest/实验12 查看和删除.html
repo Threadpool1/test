@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实验12 查看和删除</title>
+		<style type="text/css">
+			table{
+				margin:0 auto ;
+				text-align: center;
+			}
+			.look{
+				text-decoration: underline;
+				color: red;
+				cursor: pointer;
+			}
+			.delet{
+				text-decoration: underline;
+				color: red;
+				cursor: pointer;
+			}
+			
+			/* 弹窗 */
+			.modal{
+				display: none;
+				position: fixed;
+				z-index: 1;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: rgb(0,0,0,);
+				background-color: rgba(0,0,0,0.4);
+			}
+			/* 弹窗内容 */
+			.modal-content{
+				background-color: white;
+				margin: 15% auto;
+				padding: 20px;
+				border: 1px solid #888;
+				width: 30%;
+			}
+			.modal-content h4{
+				line-height: 1px;
+			}
+			
+			/* 关闭弹窗 */
+			.close:hover{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>职位</th>
+				<th>工资</th>
+				<th>操作</th>
+			</tr>
+		</table>
+		<!-- 弹窗窗口 -->
+		<div  class="modal">
+			<!-- 弹窗内容 -->
+			<div class="modal-content">
+			</div>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			//设置表格内容数组
+			let message=[
+				["张三",21,"开发工程师",13000],
+				["李四",29,"资深前端工程师",13000],
+				["王五",25,"java工程师",13000],
+				["某某",28,"项目经理","18000+提成"],
+				];
+			//添加表格
+			for(let i=0;i<message.length;i++){
+				// 设置这行的内容元素
+				let bar=$("<tr><td>"+message[i][0]+"</td>"+
+				"<td>"+message[i][1]+"</td>"+
+				"<td>"+message[i][2]+"</td>"+
+				"<td>"+message[i][3]+"</td>"+
+				"<td><a class='look'>查看</a>&nbsp;<a class='delet'>删除</a></td>"+
+				"</tr>");
+				// 添加行
+				$("table").append(bar);
+				// 给当前“查看”元素添加一个内容为i的value属性
+				$(".look").eq(i).prop("value",i);
+			}
+			//删除
+			$(".delet").click(function(){
+				//删除自身元素的父元素的父元素节点
+				$(this).parent().parent().remove();
+			})
+			// 查看
+			$(".look").click(function(){
+				// 清空窗口
+				$(".modal-content").empty();
+				// 获取当前元素的value属性值
+				let count=$(this).prop("value");
+				// 设置弹窗内容元素
+				let content=$(
+				"<span>姓名：</span>"+message[count][0]
+				+"<br><span>年龄：</span>"+message[count][1]
+				+"<br><span>职位：</span>"+message[count][2]
+				+"<br><span>工资：</span>"+message[count][3]
+				+"<br><a href='#' class='close'>关闭</a>"
+				);
+				// 给弹窗口设置内容
+				$(".modal-content").prepend(content);
+				// 打开弹窗
+				$(".modal").css("display","block");
+				//关闭窗口
+				$(".close").click(function(){
+					$(".modal").css("display","none");
+				});
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实验13 权限选择</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			#app{
+				margin: 0 auto;
+				width: 300px;
+				height: 150px;
+			}
+			#se1,#se2{
+				width: 100px;
+				height: 100%;
+				border: solid 1px #777777;
+				float: left;
+				cursor: pointer;
+				
+			}
+			.buttons{
+				width: 60px;
+				height: 100%;
+				float: left;
+			}
+			input{
+				display: block;
+				width: 60px;
+				height: 30px;
+				margin-top:2px ;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<select multiple="multiple" id="se1">
+				<option>提交</option>
+				<option>删除</option>
+				<option>修改</option>
+				<option>查询</option>
+				<option>发布</option>
+			</select>
+			<div class="buttons">
+				<input type="button" name="name1" value=">" id="add"/>
+				<input type="button" name="name2" value="<" id="remove"/>
+				<input type="button" name="name3" value=">>" id="alladd"/>
+				<input type="button" name="name4" value="<<" id="allremove"/>
+				<!-- <button id="add">></button>
+				<button id="remove"><</button>
+				<button id="alladd">>></button>
+				<button id="allremove"><<</button> -->
+			</div>
+			<select multiple="multiple" id="se2"></select>
+		</div>
+		
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$("#add").click(function(){
+				$("#se2").append($('#se1>option:selected'));
+			});
+			$("#remove").click(function(){
+				$("#se1").append($('#se2>option:selected'));
+			});
+			$("#alladd").click(function(){
+				$("#se2").append($('#se1>option'));
+			});
+			$("#allremove").click(function(){
+				$("#se1").append($('#se2>option'));
+			});
+		</script>
+	</body>
+</html>

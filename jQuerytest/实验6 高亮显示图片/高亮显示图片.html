@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>高亮显示图片</title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<style type="text/css">
+			body{background: black;}
+			div{
+				text-align: center;
+				height: 300px;
+				width: 300px;
+				left: 50%;
+				top: 50%;
+				position: fixed;
+				margin-top: -150px;
+				margin-left: -150px;				
+			}
+			.opacity_bg{opacity:0.5;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="img/01.jpg" />
+			<img src="img/02.jpg" />
+			<img src="img/03.jpg" />
+			<img src="img/04.jpg" />
+			<img src="img/05.jpg" />
+			<img src="img/06.jpg" />
+		</div>
+		<script>
+			$("div img").hover(function(){
+			  $(this).siblings().addClass("opacity_bg");
+			  //鼠标滑过当前元素，找到他的同辈元素i,并为它加上opacity_bg类
+			 },function(){  
+			  $(this).siblings().removeClass("opacity_bg");
+			  //鼠标移出当前元素，到他的同辈元素i,并移除它加上opacity_bg类景
+			 });
+		</script>
+	</body>
+</html>

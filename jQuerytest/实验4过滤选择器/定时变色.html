@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<style type="text/css">
+			th{
+				width: 50px;
+				height: 30px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<table border="1px">
+			<tr>
+				<th>ID</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>学历</th>
+			</tr>
+			<tr>
+				<td>001</td>
+				<td>张三</td>
+				<td>男</td>
+				<td>18</td>
+				<td>高中</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>李四</td>
+				<td>女</td>
+				<td>28</td>
+				<td>本科</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>王五</td>
+				<td>男</td>
+				<td>21</td>
+				<td>本科</td>
+			</tr>
+		</table>
+		<script>
+			$("td:odd").css("background","yellow");//设置td下标值为奇数的背景颜色为yellow
+			$("td:even").css("background","green");//设置td下标值为偶数的背景颜色为yellow
+			var b=true;//判断器
+			setInterval(function(){
+			if(b){
+				b=false;
+			$("td:odd").css("background","yellow");
+			$("td:even").css("background","green");
+			}else{
+				b=true;
+			$("td:odd").css("background","red");
+			$("td:even").css("background","blue");
+			}
+			},1000);
+		</script>
+	</body>
+</html>
